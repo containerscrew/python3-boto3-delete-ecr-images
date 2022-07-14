@@ -12,6 +12,7 @@ Delete old images inside ECR repository using python and boto3
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [ECR lifecycle (Alpha)](#ecr-lifecycle-alpha)
+- [Requirements](#requirements)
 - [Credentials](#credentials)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -19,6 +20,10 @@ Delete old images inside ECR repository using python and boto3
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+# Requirements
+
+* python3
+* pip3
 
 # Credentials
 
@@ -40,7 +45,7 @@ $ pip3 install ecr-lifecycle
 # Usage
 
 ```sh
-ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
+$ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
 ```
 
 ## Parameters
