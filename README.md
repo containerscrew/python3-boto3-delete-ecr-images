@@ -23,9 +23,9 @@ Delete old images inside ECR repository using python and boto3
 
 Credentials will be taken from your AWS_PROFILE in your terminal when you execute this python script.
 
-```sh
-aws configure
-export AWS_PROFILE="myprofile" # will be set in the terminal where you'll execute the python script
+```bash
+$ aws configure
+$ export AWS_PROFILE="myprofile" # will be set in the terminal where you'll execute the python script
 ```
 
 # Installation
