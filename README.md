@@ -16,6 +16,7 @@ Delete old images inside ECR repository using python and boto3
 - [Installation](#installation)
 - [Usage](#usage)
   - [Parameters](#parameters)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -49,3 +50,8 @@ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
 * **-n:** ECR repository name
 * **-l:** level info (default INFO)
 * **-d:** dry run, only prints what happens, not execute
+
+# License
+
+[LICENSE](./LICENSE)
+
