@@ -23,7 +23,7 @@ local-uninstall: ## Uninstall the package locally
 	pip3 uninstall vpnroulette
 
 lint: ## Lint python code
-	pylint vpnr_client
+	pylint ecr_lifecycle
 
 doctoc: ## Create table of contents with doctoc
 	doctoc . 
