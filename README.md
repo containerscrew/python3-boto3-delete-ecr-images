@@ -1,8 +1,23 @@
-# ECR lifecycle
+# ECR lifecycle (Alpha)
 
 Delete old images inside ECR repository using python and boto3
 
 ![python-logo](./img/python-logo.png)
+
+[![Pylint](https://github.com/nanih98/python3-boto3-delete-ecr-images/actions/workflows/tests.yml/badge.svg)](https://github.com/nanih98/python3-boto3-delete-ecr-images/actions/workflows/tests.yml)
+
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [ECR lifecycle (Alpha)](#ecr-lifecycle-alpha)
+- [Credentials](#credentials)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Parameters](#parameters)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Credentials
 
