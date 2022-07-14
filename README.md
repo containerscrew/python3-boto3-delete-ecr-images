@@ -4,7 +4,7 @@ Delete old images inside ECR repository using python and boto3
 
 ![python-logo](./img/python-logo.png)
 
-[![Pylint](https://github.com/nanih98/python3-boto3-delete-ecr-images/actions/workflows/tests.yml/badge.svg)](https://github.com/nanih98/python3-boto3-delete-ecr-images/actions/workflows/tests.yml)
+[![Pylint](https://github.com/nanih98/python3-boto3-delete-ecr-images/actions/workflows/publish-to-test-pypi.yml/badge.svg)](https://github.com/nanih98/python3-boto3-delete-ecr-images/actions/workflows/publish-to-test-pypi.yml)
 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
