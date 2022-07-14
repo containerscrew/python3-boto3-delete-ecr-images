@@ -23,7 +23,7 @@ def parse_args():
         required=False,
         default=30,
         dest="age",
-        help="""Age of the image tag""",
+        help="""Age of the image tag inside ECR repository""",
         type=int,
     )
     parser.add_argument(
@@ -48,7 +48,7 @@ def parse_args():
         required=False,
         default=False,
         dest="dry_run",
-        help="""Dry run the script""",
+        help="""Dry run the script. DO NOT delete any image, just print what happen""",
         type=bool,
     )
 

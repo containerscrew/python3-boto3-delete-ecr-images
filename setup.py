@@ -25,7 +25,7 @@ setup(
     entry_points={'console_scripts': [
         'ecr-lifecycle=ecr_lifecycle.__main__:main']},
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: POSIX :: Linux',

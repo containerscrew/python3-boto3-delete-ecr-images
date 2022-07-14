@@ -40,7 +40,7 @@ def main() -> None:
 
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = [executor.submit(
-            ecr.delete_images, client, args.dry_run, digest) for digest in images_to_delete]
+            ecr.delete_images, client,args.repository_name, args.dry_run, digest) for digest in images_to_delete]
         for future in as_completed(futures):
             if future.result() is not None:
                 log.info(f"{future.result()}")
