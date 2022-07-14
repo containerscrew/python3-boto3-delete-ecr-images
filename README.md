@@ -54,7 +54,7 @@ $ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
 * **-r:** aws region
 * **-n:** ECR repository name
 * **-l:** level info (default INFO)
-* **-d:** dry run, only prints what happens, not execute
+* **-d:** dry run, only prints what happens, not execute (default: true)
 
 # License
 

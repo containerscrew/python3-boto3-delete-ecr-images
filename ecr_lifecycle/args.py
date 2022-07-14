@@ -46,7 +46,7 @@ def parse_args():
         "-d",
         "--dry-run",
         required=False,
-        default=False,
+        default=True,
         dest="dry_run",
         help="""Dry run the script. DO NOT delete any image, just print what happen""",
         type=bool,
