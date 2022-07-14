@@ -1,7 +1,7 @@
 """ecr-lifecycle command line.
 Usage:
 ------
-    $ ecr-lifecycle -r repository_name -a age -l debug_level -d dry_run
+    $ ecr-lifecycle -r aws_region -n repository_name -a age -l debug_level -d dry_run
 Available options are:
     ......TO DO
 Contact:
@@ -28,7 +28,7 @@ def main() -> None:
     start = time.perf_counter()
     args = parse_args()
     log = Logger(log_level=args.log_level)
-    
+
     client = boto3.client('ecr', region_name=args.aws_region)
     images = client.describe_images(
         repositoryName=args.repository_name,
@@ -37,9 +37,6 @@ def main() -> None:
 
     ecr = ECR(log_level=args.log_level)
     images_to_delete = ecr.get_images(images, args.age)
-
-    # for digest in images_to_delete:
-    #     ecr.delete_images(client, args.dry_run, digest)
 
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = [executor.submit(
