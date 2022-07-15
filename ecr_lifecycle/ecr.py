@@ -44,13 +44,13 @@ class ECR():
                 self.log.info(f"Dry run: deleting {digest}")
             else:
                 self.log.info(f"Image {digest} deleted")
-                # client.batch_delete_image(
-                #     repositoryName=repository_name,
-                #     imageIds=[
-                #         {
-                #             'imageDigest': digest,
-                #         },
-                #     ]
-                # )
+                client.batch_delete_image(
+                    repositoryName=repository_name,
+                    imageIds=[
+                        {
+                            'imageDigest': digest,
+                        },
+                    ]
+                )
         except Exception as e:
             self.log.warn(f"{e}")

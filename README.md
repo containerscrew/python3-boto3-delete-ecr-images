@@ -17,6 +17,8 @@ Delete old images inside ECR repository using python and boto3
 - [Installation](#installation)
 - [Usage](#usage)
   - [Parameters](#parameters)
+- [Example](#example)
+- [TO DO](#to-do)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -56,7 +58,23 @@ $ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
 * **-l:** level info (default INFO)
 * **-d:** dry run, only prints what happens, not execute (default: true)
 
+# Example
+
+![example](./img/example.png)
+
+# TO DO
+
+You can store about 10mil images in a single ECR repository. Imagine, you have 2000mil images older than 90 days and you want to delete it. When you execute the programm, the client of boto3 only returns a max of 1000 values, so you need to launch the program twice. 
+
+```python
+client = boto3.client('ecr', region_name=args.aws_region)
+images = client.describe_images(
+    repositoryName=args.repository_name,
+    maxResults=1000, # here, limit of max results 1000
+)
+```
+
+
 # License
 
 [LICENSE](./LICENSE)
-
