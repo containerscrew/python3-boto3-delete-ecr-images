@@ -20,7 +20,7 @@ local-install: ## Install the package locally
 	pip3 install .
 
 local-uninstall: ## Uninstall the package locally
-	pip3 uninstall vpnroulette
+	pip3 uninstall ecr-lifecycle
 
 lint: ## Lint python code
 	pylint ecr_lifecycle
