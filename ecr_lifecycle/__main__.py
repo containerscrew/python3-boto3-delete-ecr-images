@@ -14,11 +14,11 @@ Version:
 
 import boto3
 import time
-from .args import parse_args
-from .ecr import ECR
+from args import parse_args
+from ecr import ECR
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 from concurrent.futures import as_completed
-from .logger import Logger
+from logger import Logger
 
 
 def main() -> None:

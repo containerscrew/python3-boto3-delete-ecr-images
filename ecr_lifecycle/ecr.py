@@ -1,10 +1,10 @@
-from .logger import Logger
+from logger import Logger
 from datetime import datetime, timedelta
 
 images_to_delete = []
 
 
-class ECR():
+class ECR:
     def __init__(self, log_level) -> None:
         self.log = Logger(log_level)
 
