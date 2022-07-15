@@ -1,4 +1,4 @@
-from logger import Logger
+from ecr_lifecycle.logger import Logger
 from datetime import datetime, timedelta
 
 images_to_delete = []
