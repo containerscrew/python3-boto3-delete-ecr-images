@@ -46,8 +46,15 @@ $ pip3 install ecr-lifecycle
 
 # Usage
 
+## Dry run
 ```sh
-$ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
+$ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO
+```
+
+## Delete images
+
+```bash
+$ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d
 ```
 
 ## Parameters
@@ -55,8 +62,8 @@ $ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
 * **-a:** max age of the image(default: 30 days)
 * **-r:** aws region
 * **-n:** ECR repository name
-* **-l:** level info (default INFO)
-* **-d:** dry run, only prints what happens, not execute (default: true)
+* **-l:** level info (default: INFO)
+* **-d:** (delete) execute the operation and delete images. Is destructive! Execute the cli first without '-d' in dry_run mode
 
 # Example
 
@@ -64,7 +71,7 @@ $ ecr-lifecycle -a 90 -r eu-west-1 -n repository/test/repo_name -l INFO -d true
 
 # TO DO
 
-You can store about 10mil images in a single ECR repository. Imagine, you have 2000mil images older than 90 days and you want to delete it. When you execute the programm, the client of boto3 only returns a max of 1000 values, so you need to launch the program twice. 
+You can store about 10mil images in a single ECR repository. Imagine, you have 2000mil images older than 90 days and you want to delete it. When you execute the program, the client of boto3 only returns a max of 1000 values, so you need to launch the program two times. 
 
 ```python
 client = boto3.client('ecr', region_name=args.aws_region)

@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name='ecr-lifecycle',
-    version='0.0.1',
+    version='0.1.1',
     description='Delete old images tag inside ECR repository',
     long_description=README,
     long_description_content_type="text/markdown",

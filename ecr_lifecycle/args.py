@@ -44,12 +44,11 @@ def parse_args():
     )
     parser.add_argument(
         "-d",
-        "--dry-run",
+        "--delete",
         required=False,
-        default=True,
-        dest="dry_run",
-        help="""Dry run the script. DO NOT delete any image, just print what happen""",
-        type=bool,
+        action='store_true',
+        dest="delete",
+        help="""If set, the program will execute the deletion of the images. -d is destructive, delete images. Run without -d first""",
     )
 
     return parser.parse_args()
