@@ -14,11 +14,11 @@ Version:
 
 import boto3
 import time
-from .args import parse_args
-from .ecr import ECR
+from args import parse_args
+from ecr import ECR
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 from concurrent.futures import as_completed
-from .logger import Logger
+from ecr_lifecycle.logger import Logger
 
 
 def main() -> None:
@@ -40,7 +40,7 @@ def main() -> None:
 
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = [executor.submit(
-            ecr.delete_images,client,args.repository_name,args.delete,digest) for digest in images_to_delete]
+            ecr.delete_images, client, args.repository_name, args.delete, digest) for digest in images_to_delete]
         for future in as_completed(futures):
             if future.result() is not None:
                 log.info(f"{future.result()}")

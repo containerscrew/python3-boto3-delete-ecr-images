@@ -1,10 +1,10 @@
-from .logger import Logger
+from ecr_lifecycle.logger import Logger
 from datetime import datetime, timedelta
 
 images_to_delete = []
 
 
-class ECR():
+class ECR:
     def __init__(self, log_level) -> None:
         self.log = Logger(log_level)
 
@@ -18,25 +18,27 @@ class ECR():
 
     def get_images(self, images, age):
         for image in images['imageDetails']:
-            current_time = datetime.now()
-            create_date = image['imagePushedAt']
             image_digest = image['imageDigest']
 
-            image_format_date = create_date.strftime('%Y/%m/%d')
-            current_format_date = current_time.strftime('%Y/%m/%d')
-
-            d1 = datetime.strptime(image_format_date, "%Y/%m/%d")
-            d2 = datetime.strptime(current_format_date, "%Y/%m/%d")
-
-            delta = d2 - d1
-
-            if delta.days > age:
+            if self.get_image_days(image['imagePushedAt']) > age:
                 images_to_delete.append(image_digest)
             else:
                 self.log.debug(
                     f"{image_digest} will not be delete since is not older than {age} days ago")
         self.log.info(f"Images to delete: {len(images_to_delete)}")
         return images_to_delete
+
+    @staticmethod
+    def get_image_days(image_date):
+        current_format_date = datetime.now().strftime('%Y/%m/%d')
+        image_format_date = image_date.strftime('%Y/%m/%d')
+
+        date_image_formatted = datetime.strptime(image_format_date, "%Y/%m/%d")
+        current_date_formatted = datetime.strptime(current_format_date, "%Y/%m/%d")
+
+        days_image_old = current_date_formatted - date_image_formatted
+
+        return days_image_old.days
 
     def delete_images(self, client, repository_name, delete, digest):
         if not delete:

@@ -24,11 +24,17 @@ class LogColors:
 
 class Logger:
     def __init__(self, log_level: str = "INFO"):
-        self.log = logging.basicConfig(
-            format="%(levelname)-2s %(message)s",
-            level=log_level,
-            encoding='utf-8'
-        )
+        root_logger = logging.getLogger()
+        root_logger.setLevel(log_level)  # or whatever
+        handler = logging.FileHandler('test.log', 'w', 'utf-8')  # or whatever
+        handler.setFormatter(logging.Formatter("%(levelname)-2s %(message)s"))
+        root_logger.addHandler(handler)
+
+        #logging.basicConfig(
+        #   format="%(levelname)-2s %(message)s",
+        #    level=log_level,
+        #    encoding='utf-8'
+        #)
 
     def error(self, msg: str, exception: Exception = None):
         logging.error(f"{LogColors.START_ERROR}{msg}{LogColors.NOCOLOR}")

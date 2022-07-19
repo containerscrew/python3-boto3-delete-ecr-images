@@ -3,6 +3,7 @@
 # Standard library imports
 import pathlib
 from setuptools import setup, find_packages
+
 HERE = pathlib.Path(__file__).resolve().parent
 README = (HERE / "README.md").read_text()
 
@@ -19,7 +20,8 @@ setup(
     author_email='test@null.io',
     license='Apache',
     install_requires=['boto3==1.23.1',
-                      'botocore==1.26.1', 'jmespath==1.0.0', 'python-dateutil==2.8.2', 's3transfer==0.5.2', 'six==1.16.0', 'urllib3==1.26.9'],
+                      'botocore==1.26.1', 'jmespath==1.0.0', 'python-dateutil==2.8.2', 's3transfer==0.5.2',
+                      'six==1.16.0', 'urllib3==1.26.9'],
     packages=find_packages(include=['ecr_lifecycle']),
     include_package_data=True,
     entry_points={'console_scripts': [
